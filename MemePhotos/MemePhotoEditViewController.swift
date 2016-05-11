@@ -25,11 +25,37 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
         cameraRollPicker.delegate = self
         cameraPicker.delegate = self
 
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor .blackColor(),
+            NSForegroundColorAttributeName : UIColor .whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeWidthAttributeName : -1.0
+        ]
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.textAlignment = .Center
+        bottomTextField.textAlignment = .Center
 
-        navigationItem.leftBarButtonItem?.enabled = false
-        navigationItem.rightBarButtonItem?.enabled = false
+        if memeImage.image == UIImage(named: "blackBackground") {
+            navigationItem.leftBarButtonItem?.enabled = false
+            navigationItem.rightBarButtonItem?.enabled = false
+        } else {
+            navigationItem.leftBarButtonItem?.enabled = true
+            navigationItem.rightBarButtonItem?.enabled = true
+        }
+
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+    }
+
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
     }
 
     @IBAction func pickImageFromCameraRoll(sender: AnyObject) {
@@ -39,6 +65,13 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
     @IBAction func takePhoto(sender: AnyObject) {
         cameraPicker.sourceType = .Camera
         presentViewController(cameraPicker, animated: true, completion: nil)
+    }
+
+    @IBAction func presentActivityView(sender: AnyObject) {
+        let activityItem: [AnyObject] = [memeImage.image as! AnyObject]
+        let shareController = UIActivityViewController(activityItems: [activityItem], applicationActivities: nil)
+        shareController
+        self.presentViewController(shareController, animated: true, completion: nil)
     }
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -54,6 +87,40 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.text = ""
+    }
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+
+        return true;
+    }
+
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MemePhotoEditViewController.keyboardWillShow(_:))    , name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MemePhotoEditViewController.keyboardWillHide(_:))    , name: UIKeyboardWillHideNotification, object: nil)
+    }
+
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name:
+            UIKeyboardWillShowNotification, object: nil)
+    }
+
+    func keyboardWillShow(notification: NSNotification) {
+        view.frame.origin.y -= getKeyboardHeight(notification)
+    }
+
+    func keyboardWillHide(notification: NSNotification) {
+        view.frame.origin.y += getKeyboardHeight(notification)
+    }
+
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.CGRectValue().height
+    }
+
 }
 

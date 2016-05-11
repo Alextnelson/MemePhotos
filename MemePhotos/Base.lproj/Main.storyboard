@@ -121,8 +121,16 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="DQ4-XK-NAm">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="eeX-T8-aYH"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="9Ph-c9-6Z3"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="eeX-T8-aYH">
+                            <connections>
+                                <action selector="presentActivityView:" destination="BYZ-38-t0r" id="b3b-yg-OXs"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="9Ph-c9-6Z3">
+                            <connections>
+                                <action selector="dismissSharingMenu:" destination="BYZ-38-t0r" id="g9K-qv-C22"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="EI9-cx-Xp2" id="D2D-1y-Da7"/>
