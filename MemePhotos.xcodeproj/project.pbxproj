@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B23C3271CE3E65A0004DE57 /* MemePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B23C3261CE3E65A0004DE57 /* MemePhoto.swift */; };
 		5BDC21601CE050FB0082F5ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC215F1CE050FB0082F5ED /* AppDelegate.swift */; };
 		5BDC21621CE050FB0082F5ED /* MemePhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC21611CE050FB0082F5ED /* MemePhotoEditViewController.swift */; };
 		5BDC21651CE050FB0082F5ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDC21631CE050FB0082F5ED /* Main.storyboard */; };
@@ -35,7 +34,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B23C3261CE3E65A0004DE57 /* MemePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemePhoto.swift; sourceTree = "<group>"; };
 		5BDC215C1CE050FB0082F5ED /* MemePhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemePhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDC215F1CE050FB0082F5ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BDC21611CE050FB0082F5ED /* MemePhotoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemePhotoEditViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 			children = (
 				5BDC215F1CE050FB0082F5ED /* AppDelegate.swift */,
 				5BDC21611CE050FB0082F5ED /* MemePhotoEditViewController.swift */,
-				5B23C3261CE3E65A0004DE57 /* MemePhoto.swift */,
 				5BDC21631CE050FB0082F5ED /* Main.storyboard */,
 				5BDC21661CE050FB0082F5ED /* Assets.xcassets */,
 				5BDC21681CE050FB0082F5ED /* LaunchScreen.storyboard */,
@@ -261,7 +258,6 @@
 			files = (
 				5BDC21621CE050FB0082F5ED /* MemePhotoEditViewController.swift in Sources */,
 				5BDC21601CE050FB0082F5ED /* AppDelegate.swift in Sources */,
-				5B23C3271CE3E65A0004DE57 /* MemePhoto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

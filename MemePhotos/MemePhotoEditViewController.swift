@@ -8,7 +8,15 @@
 
 import UIKit
 
+
 class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    struct Meme {
+        var topText: String
+        var bottomText: String
+        var image: UIImage
+        var memedImage: UIImage
+    }
 
     @IBOutlet weak var memeImage: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -68,9 +76,9 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
     }
 
     @IBAction func presentActivityView(sender: AnyObject) {
-        let activityItem: [AnyObject] = [memeImage.image as! AnyObject]
+        let memedImageToShare = savedMeme()
+        let activityItem = memedImageToShare
         let shareController = UIActivityViewController(activityItems: [activityItem], applicationActivities: nil)
-        shareController
         self.presentViewController(shareController, animated: true, completion: nil)
     }
 
@@ -106,21 +114,51 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
     func unsubscribeFromKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name:
             UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name:
+            UIKeyboardWillHideNotification, object: nil)
     }
 
     func keyboardWillShow(notification: NSNotification) {
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomTextField.editing {
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
 
     func keyboardWillHide(notification: NSNotification) {
-        view.frame.origin.y += getKeyboardHeight(notification)
+        if bottomTextField.resignFirstResponder() {
+            view.frame.origin.y += getKeyboardHeight(notification)
+        }
     }
 
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.CGRectValue().height
     }
 
+    func generateMemedImage() -> UIImage {
+
+        self.navigationController!.navigationBar.hidden = true
+        navigationController?.setToolbarHidden(true, animated: false)
+
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame,
+                                     afterScreenUpdates: true)
+        let memedImage : UIImage =
+            UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        self.navigationController!.navigationBar.hidden = true
+        navigationController?.setToolbarHidden(true, animated: false)
+
+        return memedImage
+    }
+
+    func savedMeme() -> UIImage {
+        let memedImage = generateMemedImage()
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: memeImage.image!, memedImage: memedImage)
+        return memedImage
+    }
 }
 
