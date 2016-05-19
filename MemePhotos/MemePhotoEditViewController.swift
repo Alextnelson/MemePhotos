@@ -27,7 +27,8 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         cameraRollPicker.delegate = self
         cameraPicker.delegate = self
-        formatTextFields(topTextField!, bottomTextField: bottomTextField!)
+        formatTextFields(topTextField, text: "ENTER YOUR MEME")
+        formatTextFields(bottomTextField, text: "HERE")
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -40,19 +41,17 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
         unsubscribeFromKeyboardNotifications()
     }
     
-    func formatTextFields(topTextField: UITextField, bottomTextField: UITextField) {
+    func formatTextFields(textfield: UITextField, text: String) {
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor .blackColor(),
             NSForegroundColorAttributeName : UIColor .whiteColor(),
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSStrokeWidthAttributeName : -1.0
         ]
-        topTextField.text = "ENTER YOUR MEME"
-        bottomTextField.text = "HERE"
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = .Center
-        bottomTextField.textAlignment = .Center
+        textfield.text = text
+        textfield.defaultTextAttributes = memeTextAttributes
+        textfield.textAlignment = .Center
+
         
         if memeImage.image == UIImage(named: "blackBackground") {
             navigationItem.leftBarButtonItem?.enabled = false
@@ -65,7 +64,7 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
     }
 
     @IBAction func pickImageFromCameraRoll(sender: AnyObject) {
-        self.presentViewController(cameraRollPicker, animated: true, completion: nil)
+        presentViewController(cameraRollPicker, animated: true, completion: nil)
     }
 
     @IBAction func takePhoto(sender: AnyObject) {
@@ -94,7 +93,8 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
     @IBAction func resetAll(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
         memeImage.image = UIImage(named: "blackBackground")
-        formatTextFields(topTextField!, bottomTextField: bottomTextField!)
+        formatTextFields(topTextField, text: "ENTER YOUR MEME")
+        formatTextFields(bottomTextField, text: "HERE")
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
