@@ -126,7 +126,7 @@
                                 <action selector="presentActivityView:" destination="BYZ-38-t0r" id="b3b-yg-OXs"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="9Ph-c9-6Z3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="redo" id="9Ph-c9-6Z3">
                             <connections>
                                 <action selector="resetAll:" destination="BYZ-38-t0r" id="YXX-EU-cKm"/>
                             </connections>
