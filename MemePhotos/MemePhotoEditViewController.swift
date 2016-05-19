@@ -85,6 +85,8 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
                 self.savedMeme(memedImageToShare)
             }
             self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController!.navigationBar.hidden = false
+        self.selectMemeImageSourceToolBar.hidden = false
         }
     }
     
@@ -152,7 +154,7 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
 
     func generateMemedImage() -> UIImage {
         self.navigationController!.navigationBar.hidden = true
-        navigationController?.setToolbarHidden(true, animated: false)
+        selectMemeImageSourceToolBar.hidden = true
 
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -161,9 +163,6 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
         let memedImage : UIImage =
             UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        self.navigationController!.navigationBar.hidden = true
-        selectMemeImageSourceToolBar.hidden = true
 
         return memedImage
     }
