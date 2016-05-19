@@ -46,7 +46,7 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
             NSStrokeColorAttributeName : UIColor .blackColor(),
             NSForegroundColorAttributeName : UIColor .whiteColor(),
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : -1.0
+            NSStrokeWidthAttributeName : -3.3
         ]
         textfield.text = text
         textfield.defaultTextAttributes = memeTextAttributes
