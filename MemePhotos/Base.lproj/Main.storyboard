@@ -81,19 +81,19 @@
                                 <exclude reference="kVg-Po-bYe"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="82x-tg-uvs"/>
-                                <exclude reference="ITz-RH-4Av"/>
-                                <exclude reference="TRZ-lP-5UK"/>
-                                <exclude reference="S0f-rw-lwU"/>
                                 <exclude reference="1CW-CD-EQA"/>
                                 <exclude reference="ZOg-8M-Ul0"/>
                                 <exclude reference="hMq-Nd-SxX"/>
                                 <exclude reference="sPl-Io-Hbr"/>
+                                <exclude reference="S0f-rw-lwU"/>
                                 <exclude reference="2Wd-H0-N85"/>
                                 <exclude reference="YhG-Wy-OtV"/>
                                 <exclude reference="dlp-aC-hiH"/>
                                 <exclude reference="tXm-JQ-Hfp"/>
                                 <exclude reference="xlS-wQ-xxl"/>
+                                <exclude reference="82x-tg-uvs"/>
+                                <exclude reference="ITz-RH-4Av"/>
+                                <exclude reference="TRZ-lP-5UK"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -104,19 +104,19 @@
                                 <include reference="kVg-Po-bYe"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="82x-tg-uvs"/>
-                                <include reference="ITz-RH-4Av"/>
-                                <include reference="TRZ-lP-5UK"/>
-                                <include reference="S0f-rw-lwU"/>
                                 <include reference="1CW-CD-EQA"/>
                                 <include reference="ZOg-8M-Ul0"/>
                                 <include reference="hMq-Nd-SxX"/>
                                 <include reference="sPl-Io-Hbr"/>
+                                <include reference="S0f-rw-lwU"/>
                                 <include reference="2Wd-H0-N85"/>
                                 <include reference="YhG-Wy-OtV"/>
                                 <include reference="dlp-aC-hiH"/>
                                 <include reference="tXm-JQ-Hfp"/>
                                 <include reference="xlS-wQ-xxl"/>
+                                <include reference="82x-tg-uvs"/>
+                                <include reference="ITz-RH-4Av"/>
+                                <include reference="TRZ-lP-5UK"/>
                             </mask>
                         </variation>
                     </view>
@@ -128,7 +128,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="9Ph-c9-6Z3">
                             <connections>
-                                <action selector="dismissSharingMenu:" destination="BYZ-38-t0r" id="g9K-qv-C22"/>
+                                <action selector="resetAll:" destination="BYZ-38-t0r" id="YXX-EU-cKm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -136,6 +136,7 @@
                         <outlet property="bottomTextField" destination="EI9-cx-Xp2" id="D2D-1y-Da7"/>
                         <outlet property="cameraButton" destination="VCm-fZ-xtY" id="ZbF-vx-9Zs"/>
                         <outlet property="memeImage" destination="dEw-es-cYF" id="y0K-mH-AHX"/>
+                        <outlet property="selectMemeImageSourceToolBar" destination="wj6-12-2K8" id="4qG-Zw-REM"/>
                         <outlet property="topTextField" destination="kVg-Po-bYe" id="OBW-Vu-EUx"/>
                     </connections>
                 </viewController>

@@ -11,17 +11,12 @@ import UIKit
 
 class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        var image: UIImage
-        var memedImage: UIImage
-    }
 
     @IBOutlet weak var memeImage: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var selectMemeImageSourceToolBar: UIToolbar!
 
     let cameraRollPicker = UIImagePickerController()
     let cameraPicker = UIImagePickerController()
@@ -32,28 +27,7 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         cameraRollPicker.delegate = self
         cameraPicker.delegate = self
-
-        let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor .blackColor(),
-            NSForegroundColorAttributeName : UIColor .whiteColor(),
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : -1.0
-        ]
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = .Center
-        bottomTextField.textAlignment = .Center
-
-        if memeImage.image == UIImage(named: "blackBackground") {
-            navigationItem.leftBarButtonItem?.enabled = false
-            navigationItem.rightBarButtonItem?.enabled = false
-        } else {
-            navigationItem.leftBarButtonItem?.enabled = true
-            navigationItem.rightBarButtonItem?.enabled = true
-        }
-
+        formatTextFields(topTextField!, bottomTextField: bottomTextField!)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -64,6 +38,30 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+    }
+    
+    func formatTextFields(topTextField: UITextField, bottomTextField: UITextField) {
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor .blackColor(),
+            NSForegroundColorAttributeName : UIColor .whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeWidthAttributeName : -1.0
+        ]
+        topTextField.text = "ENTER YOUR MEME"
+        bottomTextField.text = "HERE"
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.textAlignment = .Center
+        bottomTextField.textAlignment = .Center
+        
+        if memeImage.image == UIImage(named: "blackBackground") {
+            navigationItem.leftBarButtonItem?.enabled = false
+            navigationItem.rightBarButtonItem?.enabled = false
+        } else {
+            navigationItem.leftBarButtonItem?.enabled = true
+            navigationItem.rightBarButtonItem?.enabled = true
+        }
+
     }
 
     @IBAction func pickImageFromCameraRoll(sender: AnyObject) {
@@ -76,12 +74,27 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
     }
 
     @IBAction func presentActivityView(sender: AnyObject) {
-        let memedImageToShare = savedMeme()
+        let memedImageToShare = generateMemedImage()
         let activityItem = memedImageToShare
         let shareController = UIActivityViewController(activityItems: [activityItem], applicationActivities: nil)
         self.presentViewController(shareController, animated: true, completion: nil)
+        
+        shareController.completionWithItemsHandler = {
+            (activityItem, completed, returnedItems, activityError) in
+            if completed {
+                self.savedMeme(memedImageToShare)
+            }
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
+    
 
+    @IBAction func resetAll(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+        memeImage.image = UIImage(named: "blackBackground")
+        formatTextFields(topTextField!, bottomTextField: bottomTextField!)
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             memeImage.contentMode = .ScaleAspectFit
@@ -97,12 +110,13 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
     }
 
     func textFieldDidBeginEditing(textField: UITextField) {
-        textField.text = ""
+        if textField.text == "ENTER YOUR MEME" || textField.text == "HERE" {
+            textField.text = ""
+        }
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-
         return true;
     }
 
@@ -119,14 +133,14 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
     }
 
     func keyboardWillShow(notification: NSNotification) {
-        if bottomTextField.editing {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder() {
+            view.frame.origin.y -= getKeyboardHeight(notification) * 1
         }
     }
 
     func keyboardWillHide(notification: NSNotification) {
         if bottomTextField.resignFirstResponder() {
-            view.frame.origin.y += getKeyboardHeight(notification)
+            view.frame.origin.y = 0
         }
     }
 
@@ -137,7 +151,6 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
     }
 
     func generateMemedImage() -> UIImage {
-
         self.navigationController!.navigationBar.hidden = true
         navigationController?.setToolbarHidden(true, animated: false)
 
@@ -150,15 +163,14 @@ class MemePhotoEditViewController: UIViewController, UIImagePickerControllerDele
         UIGraphicsEndImageContext()
         
         self.navigationController!.navigationBar.hidden = true
-        navigationController?.setToolbarHidden(true, animated: false)
+        selectMemeImageSourceToolBar.hidden = true
 
         return memedImage
     }
 
-    func savedMeme() -> UIImage {
-        let memedImage = generateMemedImage()
+    func savedMeme(memedImage: UIImage) {
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: memeImage.image!, memedImage: memedImage)
-        return memedImage
+        print("Meme: \(meme)")
     }
 }
 

@@ -14,6 +14,7 @@
 		5BDC216A1CE050FB0082F5ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDC21681CE050FB0082F5ED /* LaunchScreen.storyboard */; };
 		5BDC21751CE050FB0082F5ED /* MemePhotosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC21741CE050FB0082F5ED /* MemePhotosTests.swift */; };
 		5BDC21801CE050FB0082F5ED /* MemePhotosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC217F1CE050FB0082F5ED /* MemePhotosUITests.swift */; };
+		5BDC22EE1CEA74010082F5ED /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC22ED1CEA74010082F5ED /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		5BDC217B1CE050FB0082F5ED /* MemePhotosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemePhotosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDC217F1CE050FB0082F5ED /* MemePhotosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemePhotosUITests.swift; sourceTree = "<group>"; };
 		5BDC21811CE050FB0082F5ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BDC22ED1CEA74010082F5ED /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				5BDC215F1CE050FB0082F5ED /* AppDelegate.swift */,
 				5BDC21611CE050FB0082F5ED /* MemePhotoEditViewController.swift */,
+				5BDC22ED1CEA74010082F5ED /* Meme.swift */,
 				5BDC21631CE050FB0082F5ED /* Main.storyboard */,
 				5BDC21661CE050FB0082F5ED /* Assets.xcassets */,
 				5BDC21681CE050FB0082F5ED /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BDC22EE1CEA74010082F5ED /* Meme.swift in Sources */,
 				5BDC21621CE050FB0082F5ED /* MemePhotoEditViewController.swift in Sources */,
 				5BDC21601CE050FB0082F5ED /* AppDelegate.swift in Sources */,
 			);
