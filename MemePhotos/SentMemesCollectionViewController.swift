@@ -39,6 +39,11 @@ class SentMemesCollectionViewController: UICollectionViewController {
         detailVC.meme = memes[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
     }
+
+    @IBAction func addMeme(sender: AnyObject) {
+        self.performSegueWithIdentifier("presentAddMemeModally", sender: self)
+    }
+
 }
 
 

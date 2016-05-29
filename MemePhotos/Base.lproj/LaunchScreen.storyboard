@@ -18,16 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="kbQ-Xf-fSu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Ixj-u0-KUd">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kbQ-Xf-fSu" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="JNB-Du-tUT"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="kbQ-Xf-fSu" secondAttribute="bottom" id="V3t-mB-RXt"/>
-                            <constraint firstItem="kbQ-Xf-fSu" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="due-Zi-fbF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kbQ-Xf-fSu" secondAttribute="trailing" constant="-20" id="znr-Ea-CMu"/>
+                            <constraint firstItem="Ixj-u0-KUd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="Qat-As-PIb"/>
+                            <constraint firstItem="Ixj-u0-KUd" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="nJe-zh-jRO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ixj-u0-KUd" secondAttribute="trailing" constant="-20" id="pbr-wa-nc9"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Ixj-u0-KUd" secondAttribute="bottom" id="qFj-no-HR7"/>
                         </constraints>
                     </view>
                 </viewController>

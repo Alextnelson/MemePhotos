@@ -151,7 +151,7 @@
             <objects>
                 <viewController id="9dR-JM-geU" customClass="SentMemesCollectionViewController" customModule="MemePhotos" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="lKI-KX-qbM">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xav-Vx-haZ">
                             <size key="itemSize" width="93" height="80"/>
@@ -161,7 +161,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCell" id="JHG-6q-DpD" customClass="MemeCollectionViewCell" customModule="MemePhotos" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="93" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="93" height="80"/>
@@ -199,7 +199,8 @@
                     <navigationItem key="navigationItem" id="9RK-W6-olo">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cnZ-f7-bae">
                             <connections>
-                                <segue destination="Edv-QP-kPP" kind="show" id="WKk-15-7iX"/>
+                                <action selector="addMeme:" destination="9dR-JM-geU" id="hoS-f6-Qoi"/>
+                                <segue destination="Edv-QP-kPP" kind="presentation" identifier="presentAddMemeModally" id="Df6-W6-CBH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -246,7 +247,8 @@
                     <navigationItem key="navigationItem" id="NhX-H3-AGR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rrA-29-gVk">
                             <connections>
-                                <segue destination="Edv-QP-kPP" kind="show" id="kAS-EC-88y"/>
+                                <action selector="addMeme:" destination="kzL-AC-Vpc" id="ovf-X9-DOy"/>
+                                <segue destination="Edv-QP-kPP" kind="presentation" identifier="presentAddMemeModally" id="0fm-cP-tiJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -389,6 +391,6 @@
         <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WKk-15-7iX"/>
+        <segue reference="Df6-W6-CBH"/>
     </inferredMetricsTieBreakers>
 </document>
