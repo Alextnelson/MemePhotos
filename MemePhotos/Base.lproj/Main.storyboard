@@ -161,13 +161,13 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCell" id="JHG-6q-DpD" customClass="MemeCollectionViewCell" customModule="MemePhotos" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="93" height="80"/>
+                                <rect key="frame" x="0.0" y="64" width="119" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="119" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ute-lL-u0g">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ute-lL-u0g">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <variation key="widthClass=compact" fixedFrame="YES">
                                                 <rect key="frame" x="0.0" y="1" width="118" height="100"/>
@@ -222,11 +222,11 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kge-Qr-gyU" id="UlL-Dv-UCc">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ILK-lR-M7x">
-                                            <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="550" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -269,34 +269,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o6c-Pg-pBa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o6c-Pg-pBa">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="o6c-Pg-pBa" secondAttribute="trailing" constant="-20" id="SUF-jE-mXo">
-                                <variation key="widthClass=compact" constant="33"/>
-                            </constraint>
-                            <constraint firstItem="gd1-BA-0Ca" firstAttribute="top" secondItem="o6c-Pg-pBa" secondAttribute="bottom" id="W23-by-ony">
-                                <variation key="widthClass=compact" constant="101"/>
-                            </constraint>
-                            <constraint firstItem="o6c-Pg-pBa" firstAttribute="leading" secondItem="QY8-PW-ses" secondAttribute="leadingMargin" constant="-20" id="ZcK-6G-WUs">
-                                <variation key="widthClass=compact" constant="33"/>
-                            </constraint>
-                            <constraint firstItem="o6c-Pg-pBa" firstAttribute="top" secondItem="OeN-VP-zLg" secondAttribute="bottom" constant="38" id="djm-SC-gFW">
-                                <variation key="widthClass=compact" constant="81"/>
-                            </constraint>
+                            <constraint firstItem="o6c-Pg-pBa" firstAttribute="leading" secondItem="QY8-PW-ses" secondAttribute="leading" id="9ax-g6-nfX"/>
+                            <constraint firstItem="o6c-Pg-pBa" firstAttribute="top" secondItem="QY8-PW-ses" secondAttribute="top" id="fLq-67-5NX"/>
+                            <constraint firstAttribute="trailing" secondItem="o6c-Pg-pBa" secondAttribute="trailing" id="suT-46-cPL"/>
+                            <constraint firstItem="o6c-Pg-pBa" firstAttribute="bottom" secondItem="gd1-BA-0Ca" secondAttribute="top" id="vFp-55-fqb"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="o6c-Pg-pBa"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="W23-by-ony"/>
-                                <exclude reference="SUF-jE-mXo"/>
-                                <exclude reference="ZcK-6G-WUs"/>
-                                <exclude reference="djm-SC-gFW"/>
+                                <exclude reference="9ax-g6-nfX"/>
+                                <exclude reference="fLq-67-5NX"/>
+                                <exclude reference="suT-46-cPL"/>
+                                <exclude reference="vFp-55-fqb"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -304,20 +296,21 @@
                                 <include reference="o6c-Pg-pBa"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="W23-by-ony"/>
-                                <include reference="SUF-jE-mXo"/>
-                                <include reference="ZcK-6G-WUs"/>
-                                <include reference="djm-SC-gFW"/>
+                                <include reference="9ax-g6-nfX"/>
+                                <include reference="fLq-67-5NX"/>
+                                <include reference="suT-46-cPL"/>
+                                <include reference="vFp-55-fqb"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="p5y-I9-LXJ"/>
                     <connections>
                         <outlet property="memeImage" destination="o6c-Pg-pBa" id="Fx7-k3-nds"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U6G-EW-Qwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1648.5" y="-35"/>
+            <point key="canvasLocation" x="2566" y="-35"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1Yb-dT-rBR">
@@ -399,6 +392,6 @@
         <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0fm-cP-tiJ"/>
+        <segue reference="Df6-W6-CBH"/>
     </inferredMetricsTieBreakers>
 </document>
