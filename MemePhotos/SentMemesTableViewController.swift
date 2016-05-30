@@ -32,7 +32,6 @@ class SentMemesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("memeCell")! as UITableViewCell
         let meme = self.memes[indexPath.row]
 
-        //Set the text and image
         cell.textLabel!.text = "\(meme.topText) \(meme.bottomText)"
         cell.imageView?.image = meme.memedImage
         return cell
@@ -48,7 +47,6 @@ class SentMemesTableViewController: UITableViewController {
     @IBAction func addMeme(sender: AnyObject) {
         self.performSegueWithIdentifier("presentAddMemeModally", sender: self)
     }
-    
 }
 
 

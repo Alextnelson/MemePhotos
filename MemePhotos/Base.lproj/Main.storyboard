@@ -275,10 +275,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="o6c-Pg-pBa" secondAttribute="trailing" constant="-20" id="SUF-jE-mXo"/>
-                            <constraint firstItem="gd1-BA-0Ca" firstAttribute="top" secondItem="o6c-Pg-pBa" secondAttribute="bottom" id="W23-by-ony"/>
-                            <constraint firstItem="o6c-Pg-pBa" firstAttribute="leading" secondItem="QY8-PW-ses" secondAttribute="leadingMargin" constant="-20" id="ZcK-6G-WUs"/>
-                            <constraint firstItem="o6c-Pg-pBa" firstAttribute="top" secondItem="OeN-VP-zLg" secondAttribute="bottom" constant="38" id="djm-SC-gFW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o6c-Pg-pBa" secondAttribute="trailing" constant="-20" id="SUF-jE-mXo">
+                                <variation key="widthClass=compact" constant="33"/>
+                            </constraint>
+                            <constraint firstItem="gd1-BA-0Ca" firstAttribute="top" secondItem="o6c-Pg-pBa" secondAttribute="bottom" id="W23-by-ony">
+                                <variation key="widthClass=compact" constant="101"/>
+                            </constraint>
+                            <constraint firstItem="o6c-Pg-pBa" firstAttribute="leading" secondItem="QY8-PW-ses" secondAttribute="leadingMargin" constant="-20" id="ZcK-6G-WUs">
+                                <variation key="widthClass=compact" constant="33"/>
+                            </constraint>
+                            <constraint firstItem="o6c-Pg-pBa" firstAttribute="top" secondItem="OeN-VP-zLg" secondAttribute="bottom" constant="38" id="djm-SC-gFW">
+                                <variation key="widthClass=compact" constant="81"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
