@@ -146,7 +146,7 @@
             </objects>
             <point key="canvasLocation" x="2440.5" y="670"/>
         </scene>
-        <!--Sent Memes Collection View Controller-->
+        <!--Sent Meme Photos-->
         <scene sceneID="c34-k2-XFU">
             <objects>
                 <viewController id="9dR-JM-geU" customClass="SentMemesCollectionViewController" customModule="MemePhotos" customModuleProvider="target" sceneMemberID="viewController">
@@ -196,7 +196,7 @@
                             <outlet property="delegate" destination="9dR-JM-geU" id="6EH-Pm-7M4"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="9RK-W6-olo">
+                    <navigationItem key="navigationItem" title="Sent Meme Photos" id="9RK-W6-olo">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cnZ-f7-bae">
                             <connections>
                                 <action selector="addMeme:" destination="9dR-JM-geU" id="hoS-f6-Qoi"/>
@@ -209,7 +209,7 @@
             </objects>
             <point key="canvasLocation" x="672" y="981"/>
         </scene>
-        <!--Sent Memes Table View Controller-->
+        <!--Sent Meme Photos-->
         <scene sceneID="t6P-Ur-omb">
             <objects>
                 <viewController id="kzL-AC-Vpc" customClass="SentMemesTableViewController" customModule="MemePhotos" customModuleProvider="target" sceneMemberID="viewController">
@@ -244,7 +244,7 @@
                             <outlet property="delegate" destination="kzL-AC-Vpc" id="VR2-QZ-d07"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="NhX-H3-AGR">
+                    <navigationItem key="navigationItem" title="Sent Meme Photos" id="NhX-H3-AGR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rrA-29-gVk">
                             <connections>
                                 <action selector="addMeme:" destination="kzL-AC-Vpc" id="ovf-X9-DOy"/>
@@ -399,6 +399,6 @@
         <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Df6-W6-CBH"/>
+        <segue reference="0fm-cP-tiJ"/>
     </inferredMetricsTieBreakers>
 </document>
